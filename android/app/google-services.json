@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "528150425076",
+    "project_id": "dalcioteca",
+    "storage_bucket": "dalcioteca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528150425076:android:2a86aa9974345363739da1",
+        "android_client_info": {
+          "package_name": "com.example.dalcioteca_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDohWncedkc8t2y6rtt3ipT15Rysa_cCbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
