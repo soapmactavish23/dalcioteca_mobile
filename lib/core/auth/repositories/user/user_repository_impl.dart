@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:dalcioteca_mobile/core/auth/models/dto/profile_register_dto.dart';
 import 'package:dalcioteca_mobile/core/exception/repository_exception.dart';
 import 'package:dalcioteca_mobile/core/fp/either.dart';
 import 'package:dalcioteca_mobile/core/fp/nil.dart';
@@ -101,7 +102,7 @@ class UserRepositoryImpl extends RestClient with UserRepository {
   }) async {
     try {
       final response = await auth.get('/usuarios', queryParameters: {
-        'name': name,        
+        'name': name,
         'page': 0,
         'size': 10,
       });
@@ -139,6 +140,22 @@ class UserRepositoryImpl extends RestClient with UserRepository {
       return Success(Token.fromMap(response.data));
     } on Exception catch (e, s) {
       String msg = 'Usuário ou senha incorretos. Acesso negado.';
+      log(msg, error: e, stackTrace: s);
+      return Failure(RepositoryException(message: msg));
+    }
+  }
+
+  @override
+  Future<Either<RepositoryException, Nil>> signUp(
+      ProfileRegisterDto user) async {
+    try {
+      await unAuth.post(
+        '/usuarios/registrar',
+        data: user.toMap(),
+      );
+      return Success(Nil());
+    } catch (e, s) {
+      String msg = 'Erro ao cadastrar novo usuário';
       log(msg, error: e, stackTrace: s);
       return Failure(RepositoryException(message: msg));
     }

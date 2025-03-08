@@ -1,3 +1,4 @@
+import 'package:dalcioteca_mobile/core/auth/models/dto/profile_register_dto.dart';
 import 'package:dalcioteca_mobile/core/exception/service_exception.dart';
 import 'package:dalcioteca_mobile/core/fp/either.dart';
 import 'package:dalcioteca_mobile/core/fp/nil.dart';
@@ -22,4 +23,5 @@ mixin UserService {
   Future<Either<ServiceException, User>> findByCode(String code);
 
   Future<Either<ServiceException, Token>> signIn(String email, String password);
+  Future<Either<ServiceException, Nil>> signUp(ProfileRegisterDto dto);
 }

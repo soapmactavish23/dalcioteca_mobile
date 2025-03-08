@@ -1,3 +1,4 @@
+import 'package:dalcioteca_mobile/core/auth/models/dto/profile_register_dto.dart';
 import 'package:dalcioteca_mobile/core/exception/service_exception.dart';
 import 'package:dalcioteca_mobile/core/fp/either.dart';
 import 'package:dalcioteca_mobile/core/fp/nil.dart';
@@ -109,6 +110,17 @@ class UserServiceImpl implements UserService {
     switch (result) {
       case Success(value: final Token token):
         return Success(token);
+      case Failure(:final exception):
+        return Failure(ServiceException(message: exception.message));
+    }
+  }
+
+  @override
+  Future<Either<ServiceException, Nil>> signUp(ProfileRegisterDto dto) async {
+    final result = await _repository.signUp(dto);
+    switch (result) {
+      case Success():
+        return Success(nil);
       case Failure(:final exception):
         return Failure(ServiceException(message: exception.message));
     }

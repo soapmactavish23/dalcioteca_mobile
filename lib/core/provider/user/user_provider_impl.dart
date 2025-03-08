@@ -1,4 +1,5 @@
 import 'package:dalcioteca_mobile/core/auth/models/dto/profile_dto.dart';
+import 'package:dalcioteca_mobile/core/auth/models/dto/profile_register_dto.dart';
 import 'package:flutter/material.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -159,6 +160,20 @@ class UserProviderImpl extends ChangeNotifier implements UserProvider {
         name: userLogged!.name,
         contact: userLogged!.contact);
     final result = await service.editProfile(dto);
+    loading = false;
+
+    switch (result) {
+      case Success():
+        Future.value();
+      case Failure(:final exception):
+        return Future.error(exception.message);
+    }
+  }
+  
+  @override
+  Future<void> signUp(ProfileRegisterDto dto) async {
+    loading = true;
+    final result = await service.signUp(dto);
     loading = false;
 
     switch (result) {
