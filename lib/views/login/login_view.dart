@@ -94,9 +94,6 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Entrar'),
-      ),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(

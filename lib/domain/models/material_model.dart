@@ -45,7 +45,7 @@ class MaterialModel {
       description: map['description'] as String,
       url: map['url'] != null ? map['url'] as String : null,
       categoryModel:
-          CategoryModel.fromMap(map['categoryModel'] as Map<String, dynamic>),
+          CategoryModel.fromMap(map['category'] as Map<String, dynamic>),
     );
   }
 

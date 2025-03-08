@@ -36,8 +36,8 @@ class FileProviderImpl extends ChangeNotifier with FileProvider {
   }
 
   @override
-  void updateMaterial(MaterialModel? material) {
-    if (material != null) {
+  void updateMaterial(MaterialModel material) {
+    if (material.id != null) {
       materialSelected = material;
       findByMaterial();
     }

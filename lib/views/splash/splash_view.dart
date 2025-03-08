@@ -52,7 +52,7 @@ class _SplashViewState extends State<SplashView> {
             onEnd: () async {
               Navigator.pushReplacementNamed(
                 context,
-                RouterName.baseRoute,
+                RouterName.loginRoute,
               );
             },
           ),

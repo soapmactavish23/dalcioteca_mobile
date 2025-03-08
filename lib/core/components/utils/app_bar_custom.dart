@@ -57,9 +57,11 @@ abstract class AppBarCustom extends AppBar {
   static getDefault({
     required String title,
     List<Widget>? actions,
+    bool centerTitle = true,
     required BuildContext context,
   }) {
     return AppBar(
+      centerTitle: centerTitle,
       title: Text(
         title,
       ),

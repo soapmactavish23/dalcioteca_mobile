@@ -9,6 +9,13 @@ class MaterialProviderImpl extends ChangeNotifier with MaterialProvider {
   final _service = MaterialServiceImpl();
 
   List<MaterialModel> list = [];
+  MaterialModel _obj = MaterialModel.empty();
+  MaterialModel get obj => _obj;
+  set obj(MaterialModel value) {
+    _obj = value;
+    notifyListeners();
+  }
+
   bool _loading = false;
 
   bool get loading => _loading;
@@ -25,8 +32,11 @@ class MaterialProviderImpl extends ChangeNotifier with MaterialProvider {
   }
 
   @override
-  Future<void> search(
-      {String? name, String? description, String? categoryId}) async {
+  Future<void> search({
+    String? name,
+    String? description,
+    String? categoryId,
+  }) async {
     loading = true;
     final result = await _service.search(
         name: name, description: description, categoryId: categoryId);

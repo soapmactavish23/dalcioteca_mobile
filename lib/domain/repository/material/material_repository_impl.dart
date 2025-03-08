@@ -13,7 +13,7 @@ class MaterialRepositoryImpl extends RestClient with MaterialRepository {
       String? description = '',
       String? categoryId = ''}) async {
     try {
-      final response = await auth.get('/materiais', queryParameters: {
+      final response = await auth.get('/material', queryParameters: {
         'name': name,
         'description': description,
         'categoryId': categoryId,
