@@ -5,4 +5,5 @@ abstract class RouterName {
   static const loginRoute = "/login";
   static const signUpRoute = "/sign-up";
   static const profileRoute = "/profile";
+  static const materialRoute = "/material";
 }

@@ -17,7 +17,7 @@ class MaterialRepositoryImpl extends RestClient with MaterialRepository {
         'name': name,
         'description': description,
         'categoryId': categoryId,
-        'page': 1,
+        'page': 0,
         'size': 10,
       });
       final data = response.data['content'];

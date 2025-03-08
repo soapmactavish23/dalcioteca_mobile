@@ -29,7 +29,7 @@ sealed class MainTheme {
     primaryColor: ColorsConstants.defaultColor,
     appBarTheme: const AppBarTheme(
       foregroundColor: Colors.white,
-      centerTitle: true,
+      centerTitle: false,
       backgroundColor: ColorsConstants.defaultColor,
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(

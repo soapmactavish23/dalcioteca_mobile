@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:dalcioteca_mobile/domain/models/category_model.dart';
+import 'package:dalcioteca_mobile/domain/models/video_model.dart';
 
 class MaterialModel {
   int? id;
@@ -9,6 +10,7 @@ class MaterialModel {
   String description;
   String? url;
   CategoryModel categoryModel;
+  List<VideoModel> videos;
 
   MaterialModel({
     this.id,
@@ -16,6 +18,7 @@ class MaterialModel {
     required this.description,
     this.url,
     required this.categoryModel,
+    required this.videos,
   });
 
   factory MaterialModel.empty() {
@@ -25,6 +28,7 @@ class MaterialModel {
       description: '',
       url: null,
       categoryModel: CategoryModel.empty(),
+      videos: [],
     );
   }
 
@@ -35,6 +39,7 @@ class MaterialModel {
       'description': description,
       'url': url,
       'categoryModel': categoryModel.toMap(),
+      'videos': videos.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -46,6 +51,11 @@ class MaterialModel {
       url: map['url'] != null ? map['url'] as String : null,
       categoryModel:
           CategoryModel.fromMap(map['category'] as Map<String, dynamic>),
+      videos: List<VideoModel>.from(
+        (map['videos'] as List<dynamic>).map<VideoModel>(
+          (x) => VideoModel.fromMap(x as Map<String, dynamic>),
+        ),
+      ),
     );
   }
 
@@ -56,6 +66,6 @@ class MaterialModel {
 
   @override
   String toString() {
-    return 'MaterialModel(id: $id, name: $name, description: $description, url: $url, categoryModel: $categoryModel)';
+    return 'MaterialModel(id: $id, name: $name, description: $description, url: $url, categoryModel: $categoryModel, videos: $videos)';
   }
 }

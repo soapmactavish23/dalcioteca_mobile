@@ -11,7 +11,7 @@ class FileRepositoryImpl extends RestClient with FileRepository {
   Future<Either<RepositoryException, List<FileModel>>> findByMaterial(
       int materialId) async {
     try {
-      final response = await auth.get('/arquivos/$materialId');
+      final response = await auth.get('/arquivo/material/$materialId');
       final list = List<Map<String, dynamic>>.from(response.data);
       return Success(list.map<FileModel>((e) => FileModel.fromMap(e)).toList());
     } on Exception catch (e, s) {

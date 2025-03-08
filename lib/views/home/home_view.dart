@@ -1,5 +1,6 @@
 import 'package:dalcioteca_mobile/core/components/lists/not_found.dart';
 import 'package:dalcioteca_mobile/core/components/utils/app_bar_custom.dart';
+import 'package:dalcioteca_mobile/core/routes/router_name.dart';
 import 'package:dalcioteca_mobile/domain/provider/material/material_provider_impl.dart';
 import 'package:dalcioteca_mobile/views/home/components/card_home.dart';
 import 'package:dalcioteca_mobile/views/home/components/search_component.dart';
@@ -65,7 +66,10 @@ class _HomeViewState extends State<HomeView> {
 
                   return CardHome(
                     material: material,
-                    onTap: () {},
+                    onTap: () {
+                      provider.obj = material;
+                      Navigator.of(context).pushNamed(RouterName.materialRoute);
+                    },
                   );
                 },
               ),

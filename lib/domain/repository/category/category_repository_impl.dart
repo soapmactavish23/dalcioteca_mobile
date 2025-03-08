@@ -10,7 +10,7 @@ class CategoryRepositoryImpl extends RestClient with CategoryRepository {
   @override
   Future<Either<RepositoryException, List<CategoryModel>>> findAll() async {
     try {
-      final response = await unAuth.get('/categorias');
+      final response = await auth.get('/categorias');
       final list = List<Map<String, dynamic>>.from(response.data).toList();
       return Success(
           list.map<CategoryModel>((e) => CategoryModel.fromMap(e)).toList());
