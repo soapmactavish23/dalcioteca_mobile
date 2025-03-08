@@ -11,6 +11,7 @@ class User {
   String? password;
   bool status;
   Group group;
+  String contact;
 
   User({
     this.id,
@@ -20,6 +21,7 @@ class User {
     this.password,
     required this.status,
     required this.group,
+    required this.contact,
   });
 
   factory User.empty() {
@@ -27,6 +29,7 @@ class User {
       code: '',
       name: '',
       email: '',
+      contact: '',
       status: true,
       group: Group.empty(),
     );
@@ -41,6 +44,7 @@ class User {
       'password': password,
       'status': status,
       'group': group.toMap(),
+      'contact': contact,
     };
   }
 
@@ -53,6 +57,7 @@ class User {
       password: map['password'] != null ? map['password'] as String : null,
       status: map['status'] as bool,
       group: Group.fromMap(map['group'] as Map<String, dynamic>),
+      contact: map['contact'] as String,
     );
   }
 
@@ -63,6 +68,6 @@ class User {
 
   @override
   String toString() {
-    return 'User(id: $id, code: $code, name: $name, email: $email, password: $password, status: $status, group: $group)';
+    return 'User(id: $id, code: $code, name: $name, email: $email, password: $password, status: $status, group: $group, contact: $contact)';
   }
 }
